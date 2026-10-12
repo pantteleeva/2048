@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="whatsThis">
+   <string>Меню</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #FFDE96</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>0</y>
+      <width>811</width>
+      <height>601</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="menu">
+     <item>
+      <widget class="QLabel" name="title_lb">
+       <property name="styleSheet">
+        <string notr="true">font-size:90pt;
+font-weight: bold;
+color: #FA855A;
+background:none;</string>
+       </property>
+       <property name="text">
+        <string>2048</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="pole_lb">
+       <property name="styleSheet">
+        <string notr="true">font-size:24pt;
+color:black;
+background:none</string>
+       </property>
+       <property name="text">
+        <string>Поле 5x5</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="play_btn">
+       <property name="styleSheet">
+        <string notr="true">background:none</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="play.qrc">
+         <normaloff>:/icons/play.svg</normaloff>:/icons/play.svg</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>200</width>
+         <height>200</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+    <zorder>play_btn</zorder>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="play.qrc"/>
+ </resources>
+ <connections/>
+</ui>
