@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>804</width>
+    <height>606</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
    <string notr="true">background-color: #FFDE96</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>-10</x>
@@ -71,7 +71,7 @@ background:none</string>
        </property>
        <property name="icon">
         <iconset resource="play.qrc">
-         <normaloff>:/icons/play.svg</normaloff>:/icons/play.svg</iconset>
+         <normaloff>:/icons/icons/play.svg</normaloff>:/icons/icons/play.svg</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -82,7 +82,6 @@ background:none</string>
       </widget>
      </item>
     </layout>
-    <zorder>play_btn</zorder>
    </widget>
   </widget>
  </widget>
