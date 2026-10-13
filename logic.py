@@ -46,8 +46,19 @@ def move_matrix(matrix, direction):
         for i in range(5):
             matrix[i] = slide_left_row(matrix[i][::-1])[::-1]
     elif direction == "up":
-        for i in range(5):
-            matrix[i] = slide_left_row(matrix[i])
+        for c in range(5):
+            col = [matrix[r][c] for r in range(5)]
+            moved = slide_left_row(col)
+            for r in range(5):
+                matrix[r][c] = moved[r]
+
     elif direction == "down":
-        for i in range(5):
-            matrix[i] = slide_left_row(matrix[i])
+        for c in range(5):
+            col = [matrix[r][c] for r in range(5)]
+            moved = slide_left_row(col[::-1])[::-1]
+            for r in range(5):
+                matrix[r][c] = moved[r]
+
+    if matrix != old_matrix:
+        matrix = spawn_matrix(matrix)
+    return matrix 
