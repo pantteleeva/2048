@@ -30,7 +30,7 @@ def slide_left_row(row):
         else:
             new_row.append(non_null[i])
 
-    new_row = [x for x in row if x != 0]
+    new_row = [x for x in new_row if x != 0]
     while len(new_row) < 5:
         new_row.append(0)
     return new_row
