@@ -3,7 +3,7 @@ import sys
 from PySide6.QtWidgets import QApplication, QDialog, QMainWindow, QTableWidgetItem
 from PySide6.QtGui import QStandardItem, QStandardItemModel
 from main_window_ui import Ui_MainWindow as homeUi
-from play_window_ui import Ui_PlayWindow as playUi
+from play_window_ui2 import Ui_PlayWindow as playUi
 from result_window_ui import Ui_MainWindow as resUi
 
 app = QApplication(sys.argv)
@@ -44,8 +44,8 @@ resultUi.b_home.clicked.connect(home)
 resultUi.b_restart.clicked.connect(restart)
 resultUi.b_exit.clicked.connect(exit_game)
 gameUi.b_home.clicked.connect(home)
-gameUi.b_restart.clicked.connect(restart)
-gameUi.b_exit.clicked.connect(exit_game)
+gameUi.pushButton.clicked.connect(restart)
+gameUi.pushButton_2.clicked.connect(exit_game)
 
 
 if __name__ == "__main__":

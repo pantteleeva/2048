@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1440</width>
-    <height>938</height>
+    <width>1167</width>
+    <height>654</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Экран игры</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color:#FFDE96</string>
@@ -20,10 +20,10 @@
    <widget class="QFrame" name="pole">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>100</y>
-      <width>701</width>
-      <height>721</height>
+      <x>310</x>
+      <y>60</y>
+      <width>571</width>
+      <height>581</height>
      </rect>
     </property>
     <property name="maximumSize">
@@ -431,7 +431,7 @@ border-radius: 20px</string>
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>100</y>
+      <y>30</y>
       <width>271</width>
       <height>121</height>
      </rect>
@@ -452,8 +452,8 @@ background:none;</string>
    <widget class="QPushButton" name="b_home">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>260</y>
+      <x>90</x>
+      <y>200</y>
       <width>121</width>
       <height>101</height>
      </rect>
@@ -478,14 +478,14 @@ background:none;</string>
    <widget class="QLabel" name="title_lb_2">
     <property name="geometry">
      <rect>
-      <x>1090</x>
-      <y>100</y>
+      <x>900</x>
+      <y>60</y>
       <width>271</width>
       <height>150</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font-size:90pt;
+     <string notr="true">font-size:65pt;
 font-weight: bold;
 color: #7A905E;
 background:none;</string>
@@ -500,10 +500,10 @@ background:none;</string>
    <widget class="QLabel" name="count_lb">
     <property name="geometry">
      <rect>
-      <x>1080</x>
-      <y>70</y>
-      <width>281</width>
-      <height>191</height>
+      <x>910</x>
+      <y>40</y>
+      <width>241</width>
+      <height>161</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -523,15 +523,15 @@ border-radius:20px;</string>
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>1170</x>
-      <y>320</y>
+      <x>970</x>
+      <y>240</y>
       <width>122</width>
       <height>228</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="btns_right">
+    <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QPushButton" name="b_restart">
+      <widget class="QPushButton" name="pushButton">
        <property name="styleSheet">
         <string notr="true">background:none;</string>
        </property>
@@ -551,7 +551,7 @@ border-radius:20px;</string>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="b_exit">
+      <widget class="QPushButton" name="pushButton_2">
        <property name="styleSheet">
         <string notr="true">background:none;</string>
        </property>
@@ -575,10 +575,10 @@ border-radius:20px;</string>
    <zorder>pole</zorder>
    <zorder>title_lb</zorder>
    <zorder>b_home</zorder>
-   <zorder>b_exit</zorder>
-   <zorder>b_restart</zorder>
    <zorder>count_lb</zorder>
    <zorder>title_lb_2</zorder>
+   <zorder>pushButton</zorder>
+   <zorder>pushButton_2</zorder>
   </widget>
  </widget>
  <resources>

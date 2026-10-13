@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>808</width>
-    <height>844</height>
+    <width>450</width>
+    <height>585</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Главная</string>
   </property>
   <property name="whatsThis">
    <string>Меню</string>
@@ -20,70 +20,94 @@
    <string notr="true">background-color: #FFDE96</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>-10</x>
-      <y>0</y>
-      <width>811</width>
-      <height>844</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="menu">
-     <item>
-      <widget class="QLabel" name="title_lb">
-       <property name="styleSheet">
-        <string notr="true">font-size:90pt;
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>66</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="1">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QLabel" name="title_lb">
+          <property name="styleSheet">
+           <string notr="true">font-size:90pt;
 font-weight: bold;
 color: #FA855A;
 background:none;</string>
-       </property>
-       <property name="text">
-        <string>2048</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="pole_lb">
-       <property name="styleSheet">
-        <string notr="true">font-size:24pt;
+          </property>
+          <property name="text">
+           <string>2048</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="pole_lb">
+          <property name="styleSheet">
+           <string notr="true">font-size:24pt;
 font-weight:bold;
 color:#7A905E;
 background:none</string>
-       </property>
-       <property name="text">
-        <string>Поле 5x5</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="play_btn">
-       <property name="styleSheet">
-        <string notr="true">background:none</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="play.qrc">
-         <normaloff>:/icons/icons/play.svg</normaloff>:/icons/icons/play.svg</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>200</width>
-         <height>200</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
+          </property>
+          <property name="text">
+           <string>Поле 5x5</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QPushButton" name="play_btn">
+        <property name="styleSheet">
+         <string notr="true">background:none</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="play.qrc">
+          <normaloff>:/icons/icons/play.svg</normaloff>:/icons/icons/play.svg</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>200</width>
+          <height>200</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="2">
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>67</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources>
