@@ -1,10 +1,12 @@
 import random
 import sys
 from PySide6.QtWidgets import QApplication, QDialog, QMainWindow, QTableWidgetItem
-from PySide6.QtGui import QStandardItem, QStandardItemModel
+from PySide6.QtCore import Qt
+from PySide6.QtGui import QStandardItem, QStandardItemModel,QKeyEvent
 from main_window_ui import Ui_MainWindow as homeUi
 from play_window_ui2 import Ui_PlayWindow as playUi
 from result_window_ui import Ui_MainWindow as resUi
+from logic import *
 
 app = QApplication(sys.argv)
 
@@ -35,6 +37,10 @@ gameWin = QMainWindow()
 gameUi =playUi()
 gameUi.setupUi(gameWin)
 
+gameUi.b_home.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+gameUi.pushButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+gameUi.pushButton_2.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+
 resultWin = QMainWindow()
 resultUi = resUi()
 resultUi.setupUi(resultWin)
@@ -47,6 +53,18 @@ gameUi.b_home.clicked.connect(home)
 gameUi.pushButton.clicked.connect(restart)
 gameUi.pushButton_2.clicked.connect(exit_game)
 
+
+
+def handle_key_press(event: QKeyEvent):
+    if event.key() == Qt.Key.Key_Left:
+        print("Лево")
+    elif event.key() == Qt.Key.Key_Right:
+        print("Право")
+    elif event.key() == Qt.Key.Key_Up:
+        print("Вверх")
+    elif event.key() == Qt.Key.Key_Down:
+        print("Низ")
+gameWin.keyPressEvent = handle_key_press
 
 if __name__ == "__main__":
     mainWin.show()
