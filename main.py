@@ -2,7 +2,8 @@ import random
 import sys
 from ctypes.wintypes import SIZE
 from PySide6.QtWidgets import QApplication, QDialog, QMainWindow, QTableWidgetItem
-from PySide6.QtGui import QStandardItem, QStandardItemModel
+from PySide6.QtCore import Qt
+from PySide6.QtGui import QStandardItem, QStandardItemModel,QKeyEvent
 from main_window_ui import Ui_MainWindow as homeUi
 from play_window_ui2 import Ui_PlayWindow as playUi
 from result_window_ui import Ui_MainWindow as resUi
@@ -20,6 +21,9 @@ COLORS = {
     1024: "#852CC8",
     2048: "#CEE568",
 }
+
+game_matrix = [] # Числа
+tile_widgets = [] # Квадраты
 app = QApplication(sys.argv)
 matrix = [[0] * 5 for _ in range(5)]
 
@@ -75,6 +79,10 @@ gameWin = QMainWindow()
 gameUi =playUi()
 gameUi.setupUi(gameWin)
 
+gameUi.b_home.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+gameUi.pushButton.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+gameUi.pushButton_2.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+
 tiles = [
     [gameUi.square, gameUi.square_2, gameUi.square_3, gameUi.square_4, gameUi.square_5],
     [gameUi.square_6, gameUi.square_7, gameUi.square_8, gameUi.square_9, gameUi.square_10],
@@ -95,6 +103,18 @@ gameUi.b_home.clicked.connect(home)
 gameUi.pushButton.clicked.connect(restart)
 gameUi.pushButton_2.clicked.connect(exit_game)
 
+
+def handle_key_press(event: QKeyEvent):
+    if event.key() == Qt.Key.Key_Left:
+        print("Лево")
+    elif event.key() == Qt.Key.Key_Right:
+        print("Право")
+    elif event.key() == Qt.Key.Key_Up:
+        print("Вверх")
+    elif event.key() == Qt.Key.Key_Down:
+        print("Низ")
+
+gameWin.keyPressEvent = handle_key_press
 
 if __name__ == "__main__":
     mainWin.show()
