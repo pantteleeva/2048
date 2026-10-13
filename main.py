@@ -7,6 +7,7 @@ from PySide6.QtGui import QStandardItem, QStandardItemModel,QKeyEvent
 from main_window_ui import Ui_MainWindow as homeUi
 from play_window_ui2 import Ui_PlayWindow as playUi
 from result_window_ui import Ui_MainWindow as resUi
+from logic import *
 
 COLORS = {
     2: "#F6FFEA",
@@ -22,23 +23,9 @@ COLORS = {
     2048: "#CEE568",
 }
 
-game_matrix = [] # Числа
-tile_widgets = [] # Квадраты
 app = QApplication(sys.argv)
 matrix = [[0] * 5 for _ in range(5)]
 
-def new_square():
-    empty = []
-    for r in range(5):
-        for c in range(5):
-            if matrix[r][c] == 0:
-                empty.append((r, c))
-    if len(empty) > 0:
-        r, c = random.choice(empty)
-        if random.random() < 0.9:
-            matrix[r][c] = 2
-        else:
-            matrix[r][c] = 4
 
 def draw():
     for r in range(5):
@@ -50,9 +37,9 @@ def draw():
             tiles[r][c].setStyleSheet(f"background-color: {color}; font-size: 36pt; border-radius: 20px; color: black; font-weight: bold;")
 
 def play():
+    global matrix
     mainWin.close()
-    new_square()
-    new_square()
+    matrix = create_new_matrix() 
     draw()
     gameWin.show()
 
@@ -62,8 +49,9 @@ def home():
     mainWin.show()
 
 def restart():
-    gameWin.close()
-    gameWin.show()
+    global matrix
+    matrix = create_new_matrix() 
+    draw()
 
 def exit_game():
     mainWin.close()
@@ -105,14 +93,23 @@ gameUi.pushButton_2.clicked.connect(exit_game)
 
 
 def handle_key_press(event: QKeyEvent):
+    global matrix
+    old_matrix = [row[:] for row in matrix]
     if event.key() == Qt.Key.Key_Left:
+        matrix = move_matrix(matrix, "left")
         print("Лево")
     elif event.key() == Qt.Key.Key_Right:
+        matrix = move_matrix(matrix, "right")
         print("Право")
     elif event.key() == Qt.Key.Key_Up:
+        matrix = move_matrix(matrix, "up")
         print("Вверх")
     elif event.key() == Qt.Key.Key_Down:
+        matrix = move_matrix(matrix, "down")
         print("Низ")
+
+    if matrix != old_matrix:
+        draw()
 
 gameWin.keyPressEvent = handle_key_press
 
