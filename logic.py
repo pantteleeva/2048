@@ -2,7 +2,7 @@ import random
 
 
 def create_new_matrix():
-    matrix = [[0] * 5 for _ in range(25)]
+    matrix = [[0] * 5 for _ in range(5)]
     matrix = spawn_matrix(matrix)
     matrix = spawn_matrix(matrix)
     return matrix
@@ -61,4 +61,4 @@ def move_matrix(matrix, direction):
 
     if matrix != old_matrix:
         matrix = spawn_matrix(matrix)
-    return matrix 
+    return matrix
