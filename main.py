@@ -1,11 +1,26 @@
 import random
 import sys
+from ctypes.wintypes import SIZE
+
 from PySide6.QtWidgets import QApplication, QDialog, QMainWindow, QTableWidgetItem
 from PySide6.QtGui import QStandardItem, QStandardItemModel
 from main_window_ui import Ui_MainWindow as homeUi
 from play_window_ui2 import Ui_PlayWindow as playUi
 from result_window_ui import Ui_MainWindow as resUi
 
+COLORS = {
+    2: "#F6FFEA",
+    4: "#D6DFCB",
+    8: "#FFDE96",
+    16: "#F9C34E",
+    32: "#FF6264",
+    64: "#C93638",
+    128: "#87E9FF",
+    256: "#62C4DA",
+    512: "#CA8AFA",
+    1024: "#852CC8",
+    2048: "#CEE568",
+}
 app = QApplication(sys.argv)
 
 def play():
@@ -34,6 +49,14 @@ mainUi.setupUi(mainWin)
 gameWin = QMainWindow()
 gameUi =playUi()
 gameUi.setupUi(gameWin)
+
+tiles = [
+    [gameUi.square, gameUi.square_2, gameUi.square_3, gameUi.square_4, gameUi.square_5],
+    [gameUi.square_6, gameUi.square_7, gameUi.square_8, gameUi.square_9, gameUi.square_10],
+    [gameUi.square_11, gameUi.square_12, gameUi.square_13, gameUi.square_14, gameUi.square_15],
+    [gameUi.square_16, gameUi.square_17, gameUi.square_18, gameUi.square_19, gameUi.square_20],
+    [gameUi.square_21, gameUi.square_22, gameUi.square_23, gameUi.square_24, gameUi.square_25],
+]
 
 resultWin = QMainWindow()
 resultUi = resUi()
