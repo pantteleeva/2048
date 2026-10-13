@@ -1,7 +1,6 @@
 import random
 import sys
 from ctypes.wintypes import SIZE
-
 from PySide6.QtWidgets import QApplication, QDialog, QMainWindow, QTableWidgetItem
 from PySide6.QtGui import QStandardItem, QStandardItemModel
 from main_window_ui import Ui_MainWindow as homeUi
@@ -22,9 +21,35 @@ COLORS = {
     2048: "#CEE568",
 }
 app = QApplication(sys.argv)
+matrix = [[0] * 5 for _ in range(5)]
+
+def new_square():
+    empty = []
+    for r in range(5):
+        for c in range(5):
+            if matrix[r][c] == 0:
+                empty.append((r, c))
+    if len(empty) > 0:
+        r, c = random.choice(empty)
+        if random.random() < 0.9:
+            matrix[r][c] = 2
+        else:
+            matrix[r][c] = 4
+
+def draw():
+    for r in range(5):
+        for c in range(5):
+            v = matrix[r][c]
+            text = str(v) if v else ""
+            color = COLORS.get(v, "#EDEAEA")
+            tiles[r][c].setText(text)
+            tiles[r][c].setStyleSheet(f"background-color: {color}; font-size: 36pt; border-radius: 20px; color: black; font-weight: bold;")
 
 def play():
     mainWin.close()
+    new_square()
+    new_square()
+    draw()
     gameWin.show()
 
 def home():
