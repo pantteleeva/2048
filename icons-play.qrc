@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icons/exit.svg</file>
+    <file>icons/home.svg</file>
+    <file>icons/restart.svg</file>
+  </qresource>
+</RCC>
