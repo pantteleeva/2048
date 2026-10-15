@@ -25,6 +25,7 @@ COLORS = {
 
 app = QApplication(sys.argv)
 matrix = [[0] * 5 for _ in range(5)]
+score = 0
 
 
 def draw():
@@ -37,11 +38,14 @@ def draw():
             tiles[r][c].setStyleSheet(f"background-color: {color}; font-size: 36pt; border-radius: 20px; color: black; font-weight: bold;")
 
 def play():
-    global matrix
+    global matrix, score
     mainWin.close()
     matrix = create_new_matrix() 
+    score = 0
+    gameUi.title_lb_2.setText(f"{score}")
     draw()
     gameWin.show()
+
 
 def home():
     gameWin.close()
@@ -49,8 +53,10 @@ def home():
     mainWin.show()
 
 def restart():
-    global matrix
+    global matrix, score
     matrix = create_new_matrix() 
+    score = 0
+    gameUi.title_lb_2.setText(f"{score}")
     draw()
 
 def exit_game():
@@ -93,23 +99,31 @@ gameUi.pushButton_2.clicked.connect(exit_game)
 
 
 def handle_key_press(event: QKeyEvent):
-    global matrix
+    global matrix, score
     old_matrix = [row[:] for row in matrix]
+    turn_score = 0
+
     if event.key() == Qt.Key.Key_Left:
-        matrix = move_matrix(matrix, "left")
+        matrix, turn_score = move_matrix(matrix, "left")
         print("Лево")
     elif event.key() == Qt.Key.Key_Right:
-        matrix = move_matrix(matrix, "right")
+        matrix, turn_score = move_matrix(matrix, "right")
         print("Право")
     elif event.key() == Qt.Key.Key_Up:
-        matrix = move_matrix(matrix, "up")
+        matrix, turn_score = move_matrix(matrix, "up")
         print("Вверх")
     elif event.key() == Qt.Key.Key_Down:
-        matrix = move_matrix(matrix, "down")
+        matrix, turn_score = move_matrix(matrix, "down")
         print("Низ")
+    else:
+        return
 
     if matrix != old_matrix:
+        score += turn_score
         draw()
+
+    gameUi.title_lb_2.setText(f"{score}")
+
 
 gameWin.keyPressEvent = handle_key_press
 
