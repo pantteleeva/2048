@@ -66,3 +66,28 @@ def move_matrix(matrix, direction):
     if matrix != old_matrix:
         matrix = spawn_matrix(matrix)
     return matrix, total_score
+
+
+def check_win(matrix):
+    for row in matrix:
+        if 2048 in row:
+            return True
+    return False
+
+
+def check_lose(matrix):
+    for row in matrix:
+        if 0 in row:
+            return False
+
+    for r in range(5):
+        for c in range(4):
+            if matrix[r][c] == matrix[r][c + 1]:
+                return False
+
+    for r in range(4):
+        for c in range(5):
+            if matrix[r][c] == matrix[r + 1][c]:
+                return False
+
+    return True

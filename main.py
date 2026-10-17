@@ -5,7 +5,7 @@ from PySide6.QtWidgets import QApplication, QDialog, QMainWindow, QTableWidgetIt
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QStandardItem, QStandardItemModel,QKeyEvent
 from main_window_ui import Ui_MainWindow as homeUi
-from play_window_ui2 import Ui_PlayWindow as playUi
+from play_window_ui import Ui_PlayWindow as playUi
 from result_window_ui import Ui_MainWindow as resUi
 from logic import *
 
@@ -105,27 +105,47 @@ def handle_key_press(event: QKeyEvent):
 
     if event.key() == Qt.Key.Key_Left:
         matrix, turn_score = move_matrix(matrix, "left")
-        print("Лево")
     elif event.key() == Qt.Key.Key_Right:
         matrix, turn_score = move_matrix(matrix, "right")
-        print("Право")
     elif event.key() == Qt.Key.Key_Up:
         matrix, turn_score = move_matrix(matrix, "up")
-        print("Вверх")
     elif event.key() == Qt.Key.Key_Down:
         matrix, turn_score = move_matrix(matrix, "down")
-        print("Низ")
     else:
         return
 
     if matrix != old_matrix:
         score += turn_score
         draw()
+        gameUi.title_lb_2.setText(f"{score}")
 
-    gameUi.title_lb_2.setText(f"{score}")
+        if check_win(matrix):
+            show_result(is_win=True)
+            return
+
+        if check_lose(matrix):
+            show_result(is_win=False)
+            return
+
 
 
 gameWin.keyPressEvent = handle_key_press
+
+def show_result(is_win):
+    global score
+    gameWin.close()
+    
+    if is_win:
+        resultUi.label_score.setText("Крутой")
+    else:
+        resultUi.label_score.setText("Лох цветочный")
+        
+    resultUi.label_2.setText(str(score)) 
+    
+    resultWin.show()
+
+
+
 
 if __name__ == "__main__":
     mainWin.show()

@@ -24,13 +24,13 @@ class Ui_PlayWindow(object):
     def setupUi(self, PlayWindow):
         if not PlayWindow.objectName():
             PlayWindow.setObjectName(u"PlayWindow")
-        PlayWindow.resize(1440, 938)
+        PlayWindow.resize(1167, 654)
         PlayWindow.setStyleSheet(u"background-color:#FFDE96")
         self.centralwidget = QWidget(PlayWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.pole = QFrame(self.centralwidget)
         self.pole.setObjectName(u"pole")
-        self.pole.setGeometry(QRect(340, 100, 701, 721))
+        self.pole.setGeometry(QRect(310, 60, 571, 581))
         self.pole.setMaximumSize(QSize(16777214, 16777215))
         self.pole.setSizeIncrement(QSize(500, 500))
         self.pole.setStyleSheet(u"background-color:#FA855A;\n"
@@ -267,7 +267,7 @@ class Ui_PlayWindow(object):
 
         self.title_lb = QLabel(self.centralwidget)
         self.title_lb.setObjectName(u"title_lb")
-        self.title_lb.setGeometry(QRect(20, 100, 271, 121))
+        self.title_lb.setGeometry(QRect(20, 30, 271, 121))
         self.title_lb.setStyleSheet(u"font-size:90pt;\n"
 "font-weight: bold;\n"
 "color: #C93638;\n"
@@ -275,7 +275,7 @@ class Ui_PlayWindow(object):
         self.title_lb.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.b_home = QPushButton(self.centralwidget)
         self.b_home.setObjectName(u"b_home")
-        self.b_home.setGeometry(QRect(100, 260, 121, 101))
+        self.b_home.setGeometry(QRect(90, 200, 121, 101))
         self.b_home.setStyleSheet(u"background:none;")
         icon = QIcon()
         icon.addFile(u":/icons/icons/home.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
@@ -283,15 +283,15 @@ class Ui_PlayWindow(object):
         self.b_home.setIconSize(QSize(100, 100))
         self.title_lb_2 = QLabel(self.centralwidget)
         self.title_lb_2.setObjectName(u"title_lb_2")
-        self.title_lb_2.setGeometry(QRect(1090, 100, 271, 150))
-        self.title_lb_2.setStyleSheet(u"font-size:90pt;\n"
+        self.title_lb_2.setGeometry(QRect(900, 60, 271, 150))
+        self.title_lb_2.setStyleSheet(u"font-size:65pt;\n"
 "font-weight: bold;\n"
 "color: #7A905E;\n"
 "background:none;")
         self.title_lb_2.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.count_lb = QLabel(self.centralwidget)
         self.count_lb.setObjectName(u"count_lb")
-        self.count_lb.setGeometry(QRect(1080, 70, 281, 191))
+        self.count_lb.setGeometry(QRect(910, 40, 241, 161))
         self.count_lb.setStyleSheet(u"font-size:20pt;\n"
 "font-weight: bold;\n"
 "color: #C93638;\n"
@@ -300,38 +300,38 @@ class Ui_PlayWindow(object):
         self.count_lb.setAlignment(Qt.AlignmentFlag.AlignHCenter|Qt.AlignmentFlag.AlignTop)
         self.widget = QWidget(self.centralwidget)
         self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(1170, 320, 122, 228))
-        self.btns_right = QVBoxLayout(self.widget)
-        self.btns_right.setObjectName(u"btns_right")
-        self.btns_right.setContentsMargins(0, 0, 0, 0)
-        self.b_restart = QPushButton(self.widget)
-        self.b_restart.setObjectName(u"b_restart")
-        self.b_restart.setStyleSheet(u"background:none;")
+        self.widget.setGeometry(QRect(970, 240, 122, 228))
+        self.verticalLayout = QVBoxLayout(self.widget)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.pushButton = QPushButton(self.widget)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setStyleSheet(u"background:none;")
         icon1 = QIcon()
         icon1.addFile(u":/icons/icons/restart.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.b_restart.setIcon(icon1)
-        self.b_restart.setIconSize(QSize(100, 100))
+        self.pushButton.setIcon(icon1)
+        self.pushButton.setIconSize(QSize(100, 100))
 
-        self.btns_right.addWidget(self.b_restart)
+        self.verticalLayout.addWidget(self.pushButton)
 
-        self.b_exit = QPushButton(self.widget)
-        self.b_exit.setObjectName(u"b_exit")
-        self.b_exit.setStyleSheet(u"background:none;")
+        self.pushButton_2 = QPushButton(self.widget)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.pushButton_2.setStyleSheet(u"background:none;")
         icon2 = QIcon()
         icon2.addFile(u":/icons/icons/exit.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.b_exit.setIcon(icon2)
-        self.b_exit.setIconSize(QSize(100, 100))
+        self.pushButton_2.setIcon(icon2)
+        self.pushButton_2.setIconSize(QSize(100, 100))
 
-        self.btns_right.addWidget(self.b_exit)
+        self.verticalLayout.addWidget(self.pushButton_2)
 
         PlayWindow.setCentralWidget(self.centralwidget)
         self.pole.raise_()
         self.title_lb.raise_()
         self.b_home.raise_()
-        self.b_exit.raise_()
-        self.b_restart.raise_()
         self.count_lb.raise_()
         self.title_lb_2.raise_()
+        self.pushButton.raise_()
+        self.pushButton_2.raise_()
 
         self.retranslateUi(PlayWindow)
 
@@ -339,7 +339,7 @@ class Ui_PlayWindow(object):
     # setupUi
 
     def retranslateUi(self, PlayWindow):
-        PlayWindow.setWindowTitle(QCoreApplication.translate("PlayWindow", u"MainWindow", None))
+        PlayWindow.setWindowTitle(QCoreApplication.translate("PlayWindow", u"\u042d\u043a\u0440\u0430\u043d \u0438\u0433\u0440\u044b", None))
         self.square_12.setText("")
         self.square_21.setText("")
         self.square_4.setText("")
@@ -369,7 +369,7 @@ class Ui_PlayWindow(object):
         self.b_home.setText("")
         self.title_lb_2.setText(QCoreApplication.translate("PlayWindow", u"2048", None))
         self.count_lb.setText(QCoreApplication.translate("PlayWindow", u"\u0422\u0435\u043a\u0443\u0449\u0438\u0439 \u0441\u0447\u0451\u0442", None))
-        self.b_restart.setText("")
-        self.b_exit.setText("")
+        self.pushButton.setText("")
+        self.pushButton_2.setText("")
     # retranslateUi
 
