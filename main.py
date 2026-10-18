@@ -54,10 +54,12 @@ def home():
 
 def restart():
     global matrix, score
+    resultWin.close()
     matrix = create_new_matrix() 
     score = 0
     gameUi.title_lb_2.setText(f"{score}")
     draw()
+    gameWin.show()
 
 def exit_game():
     mainWin.close()
