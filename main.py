@@ -1,5 +1,6 @@
 import random
 import sys
+import icons_play_rc
 from ctypes.wintypes import SIZE
 from PySide6.QtWidgets import QApplication, QDialog, QMainWindow, QTableWidgetItem
 from PySide6.QtCore import Qt
